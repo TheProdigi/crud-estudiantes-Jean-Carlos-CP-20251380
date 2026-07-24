@@ -1,1 +1,1 @@
-console.log("Primer Proyecto de CRUD en solitario");
+console.log("CRUD de estudiantes iniciado.");
