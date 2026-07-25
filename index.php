@@ -55,9 +55,14 @@
                             <td><?php echo $fila['correo']; ?></td>
                             <td><?php echo $fila['carrera']; ?></td>
                             <td> <a href="editar.php?id=<?php echo $fila['id']; ?>">
-                                <button type="button">Editar</button>
+                                <button type="button"> Editar </button>
+                                </a>
+                                <a href="eliminar.php?id=<?php echo $fila['id']; ?>"
+                                onclick="return confirm('¿Seguro que deseas eliminar este estudiante?');">
+                                <button type="button"> Eliminar </button>
                                 </a>
                             </td>
+                            
                         </tr>
 
                         <?php
