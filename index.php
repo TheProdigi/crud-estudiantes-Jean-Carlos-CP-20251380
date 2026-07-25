@@ -7,20 +7,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD de Estudiantes</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
 
     <div class="container">
 
-        <h1>CRUD de Estudiantes</h1>
+        <h1>Sistema de Gestion de Estudiantes</h1>
+        <p> Proyecto CRUD desarrollado con HTML, CSS, PHP, MySQL, y Git Flow.</p>
+        <p class="fecha"><?php echo "Fecha: " . date("d/m/Y");?></p>
 
         <form action="guardar.php" method="POST">
             <input type="text" name="nombre" placeholder="Nombre" required>
             <input type="email" name="correo" placeholder="Correo" required>
             <input type="text" name="carrera" placeholder="Carrera" required>
             <button type="submit"> Guardar </button>
+            <button type="reset"> Limpiar </button>
         </form>
 
         <hr>
@@ -32,7 +35,7 @@
                     <th>Nombre</th>
                     <th>Correo</th>
                     <th>Carrera</th>
-                    <th>Acciones</th>
+                    <th colspan="2">Acciones</th>
                 </tr>
             </thead>
 
@@ -55,14 +58,16 @@
                             <td><?php echo $fila['correo']; ?></td>
                             <td><?php echo $fila['carrera']; ?></td>
                             <td> <a href="editar.php?id=<?php echo $fila['id']; ?>">
-                                <button type="button"> Editar </button>
-                                </a>
-                                <a href="eliminar.php?id=<?php echo $fila['id']; ?>"
-                                onclick="return confirm('¿Seguro que deseas eliminar este estudiante?');">
-                                <button type="button"> Eliminar </button>
+                               <button type="button" class="btn-edit">Editar</button>
                                 </a>
                             </td>
-                            
+                            <td>
+                                <a href="eliminar.php?id=<?php echo $fila['id']; ?>"
+                                    onclick="return confirm('¿Seguro que deseas eliminar este estudiante?');">
+                                    <button type="button" class="btn-delete">Eliminar</button>
+                                </a>
+                            </td>
+
                         </tr>
 
                         <?php
@@ -88,6 +93,10 @@
         </table>
 
     </div>
+
+    <footer>
+        <p>© 2026 - Programación III | CRUD de Estudiantes</p>
+    </footer>
 
     <script src="js/app.js"></script>
 

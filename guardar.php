@@ -2,9 +2,21 @@
 
 include 'includes/conexion.php';
 
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
-$carrera = $_POST['carrera'];
+$nombre = trim($_POST['nombre']);
+$correo = trim($_POST['correo']);
+$carrera = trim($_POST['carrera']);
+
+if ($nombre == "" || $correo == "" || $carrera == "") {
+
+    die("Todos los campos son obligatorios.");
+
+}
+
+if(!filter_var($correo, FILTER_VALIDATE_EMAIL)){
+
+    die("Correo electrónico no válido.");
+
+}
 
 $sql = "INSERT INTO estudiantes(nombre, correo, carrera)
         VALUES('$nombre', '$correo', '$carrera')";
