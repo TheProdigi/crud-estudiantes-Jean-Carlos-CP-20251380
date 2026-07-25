@@ -47,17 +47,20 @@
 
                     while ($fila = $resultado->fetch_assoc()) {
 
-                ?>
+                        ?>
 
-                    <tr>
-                        <td><?php echo $fila['id']; ?></td>
-                        <td><?php echo $fila['nombre']; ?></td>
-                        <td><?php echo $fila['correo']; ?></td>
-                        <td><?php echo $fila['carrera']; ?></td>
-                        <td> <button>Editar</button> </td>
-                    </tr>
+                        <tr>
+                            <td><?php echo $fila['id']; ?></td>
+                            <td><?php echo $fila['nombre']; ?></td>
+                            <td><?php echo $fila['correo']; ?></td>
+                            <td><?php echo $fila['carrera']; ?></td>
+                            <td> <a href="editar.php?id=<?php echo $fila['id']; ?>">
+                                <button type="button">Editar</button>
+                                </a>
+                            </td>
+                        </tr>
 
-                <?php
+                        <?php
 
                     }
 
@@ -69,7 +72,7 @@
                         <td colspan="5">No hay estudiantes registrados.</td>
                     </tr>
 
-                <?php
+                    <?php
 
                 }
 
