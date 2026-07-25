@@ -14,12 +14,12 @@
 
         <h1>CRUD de Estudiantes</h1>
 
-        <form>
-            <input type="text" placeholder="Nombre">
-            <input type="email" placeholder="Correo">
-            <input type="text" placeholder="Carrera">
-            <button type="submit">Guardar</button>
-        </form>
+       <form action="guardar.php" method="POST">
+           <input type="text" name="nombre" placeholder="Nombre" required>
+           <input type="email" name="correo" placeholder="Correo" required>
+           <input type="text" name="carrera" placeholder="Carrera" required>
+           <button type="submit"> Guardar </button>
+       </form>
 
         <hr>
 
