@@ -1,3 +1,5 @@
+<?php include 'includes/conexion.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,12 +16,12 @@
 
         <h1>CRUD de Estudiantes</h1>
 
-       <form action="guardar.php" method="POST">
-           <input type="text" name="nombre" placeholder="Nombre" required>
-           <input type="email" name="correo" placeholder="Correo" required>
-           <input type="text" name="carrera" placeholder="Carrera" required>
-           <button type="submit"> Guardar </button>
-       </form>
+        <form action="guardar.php" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="email" name="correo" placeholder="Correo" required>
+            <input type="text" name="carrera" placeholder="Carrera" required>
+            <button type="submit"> Guardar </button>
+        </form>
 
         <hr>
 
@@ -35,16 +37,49 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td colspan="5">
-                        No hay estudiantes registrados.
-                    </td>
-                </tr>
+
+                <?php
+
+                $sql = "SELECT * FROM estudiantes";
+                $resultado = $conn->query($sql);
+
+                if ($resultado->num_rows > 0) {
+
+                    while ($fila = $resultado->fetch_assoc()) {
+
+                ?>
+
+                    <tr>
+                        <td><?php echo $fila['id']; ?></td>
+                        <td><?php echo $fila['nombre']; ?></td>
+                        <td><?php echo $fila['correo']; ?></td>
+                        <td><?php echo $fila['carrera']; ?></td>
+                        <td> <button>Editar</button> </td>
+                    </tr>
+
+                <?php
+
+                    }
+
+                } else {
+
+                    ?>
+
+                    <tr>
+                        <td colspan="5">No hay estudiantes registrados.</td>
+                    </tr>
+
+                <?php
+
+                }
+
+                ?>
+
             </tbody>
 
         </table>
 
-        </div>
+    </div>
 
     <script src="js/app.js"></script>
 
