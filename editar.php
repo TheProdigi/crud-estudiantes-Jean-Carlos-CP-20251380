@@ -17,7 +17,7 @@ $estudiante = $resultado->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title>Editar Estudiante</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
